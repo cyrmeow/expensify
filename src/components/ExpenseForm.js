@@ -11,13 +11,15 @@ const defaultState = {
   createdAt: new moment(),
   calendarFocused: false,
   error: ''
-}
+};
+
 class ExpenseForm extends React.Component {
   state = this.props.expense ? {
     ...this.props.expense,
     createdAt: new moment(this.props.expense.createdAt),
     calendarFocused: false,
-    error: ''
+    error: '',
+    amount: this.props.expense.amount / 100
     } : defaultState;
   onDescriptionChangeHandler = (e) => {
     const description = e.target.value;
